@@ -17,6 +17,12 @@ A collection of RMarkdown and R file templates
 
 ## Detailed Explanation
 
+### Citations and Bibliography
+
+The template is currently set-up to work perfectly with the [`rbbt` package](https://github.com/paleolimbot/rbbt), which connects Zotero and RStudio. The `.yaml` line  `bibliography: "`r rbbt::bbt_write_bib('biblio.bib', overwrite = TRUE)`"`  checks the document for any included references (using the `@identifier` logic that is standard across RMarkdown) and then creates a `.bib` file in the same folder as the Rmd file. This is a perfect set-up (for me) because I can use the `rbbt` add-in to RStudio to search my Zotero database and quickly add authors without ever having to export the library in Zotero. Note: I would always use a `.bib` file extension and not a `.json` extension because if your document does not contain any references, the `.bib` file does not crash - the `.json` file crahses, because it requires a certain format (i.e. it would at least require two square brackets `[]` in the file.
+
+If you intend to use a different Reference Management system, please just replace the bibliography with the path to your bibliography file, i.e. `bibliography: bibliography.bib`.
+
 ### footer
 
 If we want to use a `footer.hmtl`, we need to use the option `self_contained: FALSE` in the `html_document` specification
