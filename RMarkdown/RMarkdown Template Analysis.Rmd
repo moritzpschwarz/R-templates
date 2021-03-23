@@ -1,0 +1,74 @@
+---
+date: "`r Sys.Date()`"
+author:
+  - name: Moritz Schwarz
+    email: moritz.schwarz@ouce.ox.ac.uk
+    institute: [ce, smith, inet]
+  #   correspondence: true
+  # - name: Christopher
+  #   institute: ce
+  # - name: Seaghán Mhartain
+  #   institute: smith
+  # - name: Rita Yuri Ynoue
+  #   institute: inet
+institute:
+  - ce: Climate Econometrics
+  - inet: Institute for New Economic Thinking at the Oxford Martin School
+  - smith: Smith School of Enterprise and the Environment
+title: "RMarkdown Template"
+bibliography: "`r rbbt::bbt_write_bib('biblio.bib', overwrite = TRUE)`"
+output: 
+  officedown::rdocx_document:
+    reference_docx: StylesTemplate.docx
+    mapstyles:
+      Normal: ['First Paragraph']
+    pandoc_args:
+      - '--lua-filter=scholarly-metadata.lua'
+      - '--lua-filter=author-info-blocks.lua'
+  pdf_document: 
+    pandoc_args:
+      - '--lua-filter=scholarly-metadata.lua'
+      - '--lua-filter=author-info-blocks.lua'
+knit: (function(inputFile, encoding) { 
+  rmarkdown::render(inputFile, 
+  encoding = encoding, 
+  output_format = "all",
+  output_dir = here::here("output")) 
+  })
+---
+
+# Set-up
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(comment = NA, echo = TRUE, eval = TRUE, warning = FALSE, message = FALSE, 
+                      fig.width = 6, fig.height = 4, fig.cap = TRUE)
+```
+
+
+# Libraries
+
+```{r}
+# core libraries
+library(tidyverse)
+library(here)
+
+# # analysis libraries
+# library(gets)
+# 
+# # plotting libraries
+# library(extrafont)
+# library(viridis)
+# library(cowplot)
+
+rm(list=ls())
+select <- dplyr::select
+here <- here::here
+```
+
+# Data
+
+
+# Analysis
+
+
+# References
