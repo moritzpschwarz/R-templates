@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Moritz Schwarz1,3,2" />
+
+<meta name="date" content="2021-03-23" />
+
+<title>RMarkdown Template</title>
+
+<script src="RMarkdown-Template-Analysis_files/header-attrs-2.6/header-attrs.js"></script>
+<script src="RMarkdown-Template-Analysis_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="RMarkdown-Template-Analysis_files/bootstrap-3.3.5/css/lumen.min.css" rel="stylesheet" />
+<script src="RMarkdown-Template-Analysis_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="RMarkdown-Template-Analysis_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="RMarkdown-Template-Analysis_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="RMarkdown-Template-Analysis_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="RMarkdown-Template-Analysis_files/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="RMarkdown-Template-Analysis_files/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="RMarkdown-Template-Analysis_files/navigation-1.1/tabsets.js"></script>
+<script src="RMarkdown-Template-Analysis_files/navigation-1.1/codefolding.js"></script>
+<script src="RMarkdown-Template-Analysis_files/navigation-1.1/sourceembed.js"></script>
+<link href="RMarkdown-Template-Analysis_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="RMarkdown-Template-Analysis_files/highlightjs-9.12.0/highlight.js"></script>
+<link href="RMarkdown-Template-Analysis_files/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="RMarkdown-Template-Analysis_files/pagedtable-1.1/js/pagedtable.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+#rmd-source-code {
+  display: none;
+}
+</style>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-download-source" href="#">Download Rmd</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">RMarkdown Template</h1>
+<h4 class="author">Moritz Schwarz<sup>1,3,2</sup></h4>
+<h4 class="date">2021-03-23</h4>
+
+</div>
+
+
+<p><sup>1</sup> Climate Econometrics, Nuffield College, University of Oxford<br />
+<sup>2</sup> Institute for New Economic Thinking at the Oxford Martin School<br />
+<sup>3</sup> Smith School of Enterprise and the Environment, University of Oxford</p>
+<div id="set-up" class="section level1" number="1">
+<h1 number="1"><span class="header-section-number">1</span> Set-up</h1>
+</div>
+<div id="libraries" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> Libraries</h1>
+<pre class="r"><code># core libraries
+library(tidyverse)
+library(here)
+
+# # analysis libraries
+# library(gets)
+# 
+# # plotting libraries
+# library(extrafont)
+# library(viridis)
+# library(cowplot)
+
+rm(list=ls())
+select &lt;- dplyr::select
+here &lt;- here::here</code></pre>
+</div>
+<div id="data" class="section level1" number="3">
+<h1 number="3"><span class="header-section-number">3</span> Data</h1>
+</div>
+<div id="analysis" class="section level1" number="4">
+<h1 number="4"><span class="header-section-number">4</span> Analysis</h1>
+</div>
+<div id="references" class="section level1" number="5">
+<h1 number="5"><span class="header-section-number">5</span> References</h1>
+</div>
+
+<div id="rmd-source-code">LS0tDQpkYXRlOiAiYHIgU3lzLkRhdGUoKWAiDQphdXRob3I6DQogIC0gbmFtZTogTW9yaXR6IFNjaHdhcnoNCiAgICBlbWFpbDogbW9yaXR6LnNjaHdhcnpAb3VjZS5veC5hYy51aw0KICAgIGluc3RpdHV0ZTogW2NlLCBzbWl0aCwgaW5ldF0NCiAgIyAgIGNvcnJlc3BvbmRlbmNlOiB0cnVlDQogICMgLSBuYW1lOiBDaHJpc3RvcGhlcg0KICAjICAgaW5zdGl0dXRlOiBjZQ0KICAjIC0gbmFtZTogU2VhZ2jDoW4gTWhhcnRhaW4NCiAgIyAgIGluc3RpdHV0ZTogc21pdGgNCiAgIyAtIG5hbWU6IFJpdGEgWXVyaSBZbm91ZQ0KICAjICAgaW5zdGl0dXRlOiBpbmV0DQppbnN0aXR1dGU6DQogIC0gY2U6IENsaW1hdGUgRWNvbm9tZXRyaWNzLCBOdWZmaWVsZCBDb2xsZWdlLCBVbml2ZXJzaXR5IG9mIE94Zm9yZA0KICAtIGluZXQ6IEluc3RpdHV0ZSBmb3IgTmV3IEVjb25vbWljIFRoaW5raW5nIGF0IHRoZSBPeGZvcmQgTWFydGluIFNjaG9vbA0KICAtIHNtaXRoOiBTbWl0aCBTY2hvb2wgb2YgRW50ZXJwcmlzZSBhbmQgdGhlIEVudmlyb25tZW50LCBVbml2ZXJzaXR5IG9mIE94Zm9yZA0KdGl0bGU6ICJSTWFya2Rvd24gVGVtcGxhdGUiDQpiaWJsaW9ncmFwaHk6ICJgciByYmJ0OjpiYnRfd3JpdGVfYmliKCdiaWJsaW8uYmliJywgb3ZlcndyaXRlID0gVFJVRSlgIg0Kb3V0cHV0OiANCiAgb2ZmaWNlZG93bjo6cmRvY3hfZG9jdW1lbnQ6DQogICAgcmVmZXJlbmNlX2RvY3g6IFN0eWxlc1RlbXBsYXRlLmRvY3gNCiAgICB0b2M6IG5vDQogICAgdG9jX2RlcHRoOiAyDQogICAgbWFwc3R5bGVzOg0KICAgICAgTm9ybWFsOiBbJ0ZpcnN0IFBhcmFncmFwaCddDQogICAgcGFuZG9jX2FyZ3M6DQogICAgICAtICctLWx1YS1maWx0ZXI9c2Nob2xhcmx5LW1ldGFkYXRhLmx1YScNCiAgICAgIC0gJy0tbHVhLWZpbHRlcj1hdXRob3ItaW5mby1ibG9ja3MubHVhJw0KICBwZGZfZG9jdW1lbnQ6DQogICAgbnVtYmVyX3NlY3Rpb25zOiB5ZXMNCiAgICB0b2M6IG5vDQogICAgdG9jX2RlcHRoOiAyDQogICAgcGFuZG9jX2FyZ3M6DQogICAgICAtICctLWx1YS1maWx0ZXI9c2Nob2xhcmx5LW1ldGFkYXRhLmx1YScNCiAgICAgIC0gJy0tbHVhLWZpbHRlcj1hdXRob3ItaW5mby1ibG9ja3MubHVhJw0KICBodG1sX2RvY3VtZW50Og0KICAgIHRoZW1lOiAibHVtZW4iDQogICAgY29kZV9kb3dubG9hZDogdHJ1ZQ0KICAgIHRvYzogdHJ1ZQ0KICAgIHRvY19mbG9hdDogdHJ1ZQ0KICAgIHRvY19kZXB0aDogMg0KICAgIG51bWJlcl9zZWN0aW9uczogdHJ1ZQ0KICAgIGRmX3ByaW50OiBwYWdlZA0KICAgIHNlbGZfY29udGFpbmVkOiBGQUxTRSAjIG5lZWRlZCBpZiB0aGUgZm9vdGVyIGluY2x1ZGVzIGljb25zDQogICAgcGFuZG9jX2FyZ3M6DQogICAgICAtICctLWx1YS1maWx0ZXI9c2Nob2xhcmx5LW1ldGFkYXRhLmx1YScNCiAgICAgIC0gJy0tbHVhLWZpbHRlcj1hdXRob3ItaW5mby1ibG9ja3MubHVhJw0KICAgIGluY2x1ZGVzOg0KICAgICAgYWZ0ZXJfYm9keTogZm9vdGVyLmh0bWwNCmNzbDogbmF0dXJlLmNzbA0Ka25pdDogKGZ1bmN0aW9uKGlucHV0RmlsZSwgZW5jb2RpbmcpIHsgDQogIHJtYXJrZG93bjo6cmVuZGVyKGlucHV0RmlsZSwgDQogIGVuY29kaW5nID0gZW5jb2RpbmcsIA0KICBvdXRwdXRfZm9ybWF0ID0gImFsbCIsIA0KICBvdXRwdXRfZGlyID0gaGVyZTo6aGVyZSgib3V0cHV0IikpIA0KICB9KQ0KLS0tDQoNCiMgU2V0LXVwDQoNCmBgYHtyLCBlY2hvPUZBTFNFfQ0Ka25pdHI6Om9wdHNfY2h1bmskc2V0KGNvbW1lbnQgPSBOQSwgZWNobyA9IFRSVUUsIGV2YWwgPSBUUlVFLCB3YXJuaW5nID0gRkFMU0UsIG1lc3NhZ2UgPSBGQUxTRSwgDQogICAgICAgICAgICAgICAgICAgICAgZmlnLndpZHRoID0gNiwgZmlnLmhlaWdodCA9IDQsIGZpZy5jYXAgPSBUUlVFKQ0KYGBgDQoNCmByIGlmKCFrbml0cjo6OmlzX2h0bWxfb3V0cHV0KCkpe2tuaXRyOjphc2lzX291dHB1dCgiIyBUYWJsZSBvZiBDb250ZW50cyIpfWANCg0KYGBge3IgdG9jLCBlY2hvPUZBTFNFfSANCmlmICgha25pdHI6Ojppc19odG1sX291dHB1dCgpKSB7DQogIGRldnRvb2xzOjpzb3VyY2VfZ2lzdCgiYzgzZTA3OGJmOGM4MWIwMzVlMzJjM2ZjMGNmMDRlZTgiLCANCiAgICAgICAgICAgICAgICAgICAgICBmaWxlbmFtZSA9ICdyZW5kZXJfdG9jLlInKQ0KcmVuZGVyX3RvYyhmaWxlbmFtZSA9IGtuaXRyOjpjdXJyZW50X2lucHV0KCksIHRvY19oZWFkZXJfbmFtZSA9ICJUYWJsZSBvZiBDb250ZW50cyIpDQp9IA0KYGBgDQoNCg0KIyBMaWJyYXJpZXMNCg0KYGBge3IsIGV2YWw9RkFMU0V9DQojIGNvcmUgbGlicmFyaWVzDQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCmxpYnJhcnkoaGVyZSkNCg0KIyAjIGFuYWx5c2lzIGxpYnJhcmllcw0KIyBsaWJyYXJ5KGdldHMpDQojIA0KIyAjIHBsb3R0aW5nIGxpYnJhcmllcw0KIyBsaWJyYXJ5KGV4dHJhZm9udCkNCiMgbGlicmFyeSh2aXJpZGlzKQ0KIyBsaWJyYXJ5KGNvd3Bsb3QpDQoNCnJtKGxpc3Q9bHMoKSkNCnNlbGVjdCA8LSBkcGx5cjo6c2VsZWN0DQpoZXJlIDwtIGhlcmU6OmhlcmUNCmBgYA0KDQojIERhdGENCg0KDQojIEFuYWx5c2lzDQoNCg0KIyBSZWZlcmVuY2VzDQoNCg==</div>
+&nbsp;
+<!-- Thanks to Yan Holtz here: https://holtzy.github.io/Pimp-my-rmd/#footer_and_header -->
+<hr />
+<p style="text-align: center;">A work by <a href="https://github.com/moritzpschwarz/">Moritz Schwarz</a></p>
+<p style="text-align: center;"><span style="color: #808080;"><em>moritz.schwarz@ouce.ox.ac.uk</em></span></p>
+
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css">-->
+
+
+<!-- Add font awesome icons -->
+
+<p style="text-align: center;">
+    <a href="https://moritzschwarz.org" class="fa fa-home"></a>
+    <a href="https://twitter.com/moritzpschwarz?lang=en" class="fa fa-twitter"></a>
+    <a href="https://www.linkedin.com/in/moritzpschwarz/" class="fa fa-linkedin"></a>
+    <a href="https://github.com/moritzpschwarz/" class="fa fa-github"></a>
+</p>
+
+&nbsp;
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeSourceEmbed("RMarkdown Template Analysis.Rmd");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

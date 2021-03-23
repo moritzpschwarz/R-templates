@@ -12,27 +12,47 @@ author:
   # - name: Rita Yuri Ynoue
   #   institute: inet
 institute:
-  - ce: Climate Econometrics
+  - ce: Climate Econometrics, Nuffield College, University of Oxford
   - inet: Institute for New Economic Thinking at the Oxford Martin School
-  - smith: Smith School of Enterprise and the Environment
+  - smith: Smith School of Enterprise and the Environment, University of Oxford
 title: "RMarkdown Template"
 bibliography: "`r rbbt::bbt_write_bib('biblio.bib', overwrite = TRUE)`"
 output: 
   officedown::rdocx_document:
     reference_docx: StylesTemplate.docx
+    toc: no
+    toc_depth: 2
     mapstyles:
       Normal: ['First Paragraph']
     pandoc_args:
       - '--lua-filter=scholarly-metadata.lua'
       - '--lua-filter=author-info-blocks.lua'
-  pdf_document: 
+  pdf_document:
+    number_sections: yes
+    toc: no
+    toc_depth: 2
     pandoc_args:
       - '--lua-filter=scholarly-metadata.lua'
       - '--lua-filter=author-info-blocks.lua'
+  html_document:
+    theme: "lumen"
+    code_download: true
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    number_sections: true
+    df_print: paged
+    self_contained: FALSE # needed if the footer includes icons
+    pandoc_args:
+      - '--lua-filter=scholarly-metadata.lua'
+      - '--lua-filter=author-info-blocks.lua'
+    includes:
+      after_body: footer.html
+csl: nature.csl
 knit: (function(inputFile, encoding) { 
   rmarkdown::render(inputFile, 
   encoding = encoding, 
-  output_format = "all",
+  output_format = "all", 
   output_dir = here::here("output")) 
   })
 ---
@@ -44,10 +64,20 @@ knitr::opts_chunk$set(comment = NA, echo = TRUE, eval = TRUE, warning = FALSE, m
                       fig.width = 6, fig.height = 4, fig.cap = TRUE)
 ```
 
+`r if(!knitr:::is_html_output()){knitr::asis_output("# Table of Contents")}`
+
+```{r toc, echo=FALSE} 
+if (!knitr:::is_html_output()) {
+  devtools::source_gist("c83e078bf8c81b035e32c3fc0cf04ee8", 
+                      filename = 'render_toc.R')
+render_toc(filename = knitr::current_input(), toc_header_name = "Table of Contents")
+} 
+```
+
 
 # Libraries
 
-```{r}
+```{r, eval=FALSE}
 # core libraries
 library(tidyverse)
 library(here)
@@ -72,3 +102,4 @@ here <- here::here
 
 
 # References
+
