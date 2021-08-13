@@ -1,0 +1,60 @@
+---
+date: "`r Sys.Date()`"
+author: Author Name
+title: "RMarkdown Template"
+output: 
+  html_document:
+    theme: "lumen"
+    code_download: true
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    number_sections: true
+    df_print: paged
+knit: (function(inputFile, encoding) { 
+  rmarkdown::render(inputFile, 
+  encoding = encoding, 
+  output_format = "html_document", 
+  output_dir = here::here("output")) 
+  })
+---
+  
+# Set-up
+  
+```{r, echo=FALSE}
+knitr::opts_chunk$set(comment = NA, echo = TRUE, eval = TRUE, 
+                      warning = FALSE, message = FALSE, 
+                      fig.width = 6, fig.height = 4)
+```
+
+# Libraries
+
+```{r, message = FALSE}
+# core libraries
+library(conflicted)
+library(tidyverse)
+library(here)
+# # analysis libraries
+# library(gets)
+# 
+# # plotting libraries
+# library(extrafont)
+# library(viridis)
+# library(cowplot)
+
+rm(list=ls())
+conflict_prefer("filter", "dplyr")
+conflict_prefer("select", "dplyr")
+```
+
+# Data
+
+
+# Analysis
+
+```{r}
+print(1:2000)
+```
+
+
+# References
