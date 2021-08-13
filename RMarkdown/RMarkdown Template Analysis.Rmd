@@ -1,5 +1,5 @@
 ---
-date: "`r Sys.Date()`"
+date: '`r format(Sys.time(), "%B %d, %Y")`'
 author:
   - name: Moritz Schwarz
     email: moritz.schwarz@ouce.ox.ac.uk
@@ -49,6 +49,7 @@ output:
     includes:
       after_body: footer.html
 csl: nature.csl
+urlcolor: blue
 knit: (function(inputFile, encoding) { 
   rmarkdown::render(inputFile, 
   encoding = encoding, 
@@ -79,6 +80,7 @@ render_toc(filename = knitr::current_input(), toc_header_name = "Table of Conten
 
 ```{r, eval=FALSE}
 # core libraries
+library(conflicted)
 library(tidyverse)
 library(here)
 
@@ -90,9 +92,12 @@ library(here)
 # library(viridis)
 # library(cowplot)
 
+conflict_prefer("filter", "dplyr")
+conflict_prefer("select", "dplyr")
+conflict_prefer("lag", "dplyr")
+conflict_prefer("here", "here")
+
 rm(list=ls())
-select <- dplyr::select
-here <- here::here
 ```
 
 # Data
