@@ -34,18 +34,8 @@ output:
     pandoc_args:
       - '--lua-filter=scholarly-metadata.lua'
       - '--lua-filter=author-info-blocks.lua'
-    header-includes:
-  - |
-    ```{=latex}
-    \usepackage{fvextra}
-    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
-      breaksymbolleft={},
-      showspaces = false,
-      showtabs = false,
-      breaklines,
-      commandchars=\\\{\}
-    }
-    ```
+    includes:
+      in_header: "avoid_overflowing_code.tex"
   bookdown::html_document2:
     theme: "lumen"
     code_download: true
@@ -63,11 +53,11 @@ output:
 csl: nature.csl
 urlcolor: blue
 knit: (function(inputFile, encoding) { 
+  rmarkdown::render(inputFile, 
   encoding = encoding, 
   output_format = "all", 
-  })
-  rmarkdown::render(inputFile, 
   output_dir = here::here("output")) 
+  })
 editor_options:
   chunk_output_type: console
 ---

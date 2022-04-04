@@ -14,7 +14,7 @@ output:
 knit: (function(inputFile, encoding) { 
   rmarkdown::render(inputFile, 
   encoding = encoding, 
-  output_format = "html_document", 
+  output_format = "bookdown::html_document2", 
   output_dir = here::here("output")) 
   })
 editor_options:
