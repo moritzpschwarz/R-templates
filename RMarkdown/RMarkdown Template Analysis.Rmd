@@ -34,7 +34,7 @@ output:
     pandoc_args:
       - '--lua-filter=scholarly-metadata.lua'
       - '--lua-filter=author-info-blocks.lua'
-  html_document:
+  bookdown::html_document2: 
     theme: "lumen"
     code_download: true
     toc: true
@@ -51,12 +51,17 @@ output:
 csl: nature.csl
 urlcolor: blue
 knit: (function(inputFile, encoding) { 
-  rmarkdown::render(inputFile, 
   encoding = encoding, 
   output_format = "all", 
-  output_dir = here::here("output")) 
   })
+  rmarkdown::render(inputFile, 
+  output_dir = here::here("output")) 
+editor_options:
+  chunk_output_type: console
 ---
+
+<!-- For equations: \begin{equation} \end{equation} and then add (\#eq:XXX) just before the end -->
+
 
 # Set-up
 
@@ -92,12 +97,12 @@ library(here)
 # library(viridis)
 # library(cowplot)
 
+rm(list=ls())
 conflict_prefer("filter", "dplyr")
 conflict_prefer("select", "dplyr")
 conflict_prefer("lag", "dplyr")
 conflict_prefer("here", "here")
-
-rm(list=ls())
+conflict_prefer("as.zoo.data.frame", "zoo")
 ```
 
 # Data

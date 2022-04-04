@@ -3,7 +3,7 @@ date: "`r Sys.Date()`"
 author: Author Name
 title: "RMarkdown Template"
 output: 
-  html_document:
+  bookdown::html_document2:
     theme: "lumen"
     code_download: true
     toc: true
@@ -17,7 +17,11 @@ knit: (function(inputFile, encoding) {
   output_format = "html_document", 
   output_dir = here::here("output")) 
   })
+editor_options:
+  chunk_output_type: console
 ---
+
+<!-- For equations: \begin{equation} \end{equation} and then add (\#eq:XXX) just before the end -->
   
 # Set-up
   
@@ -45,6 +49,9 @@ library(here)
 rm(list=ls())
 conflict_prefer("filter", "dplyr")
 conflict_prefer("select", "dplyr")
+conflict_prefer("lag", "dplyr")
+conflict_prefer("here", "here")
+conflict_prefer("as.zoo.data.frame", "zoo")
 ```
 
 # Data
